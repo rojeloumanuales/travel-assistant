@@ -1,4 +1,4 @@
 <mat-toolbar color="primary" class="navbar">
     <div routerLink="/">Park2Go</div>
-    <button *ngIf="uService.isLoggedIn()" (click)="logout()" type="button" class="btn btn-primary">Logout</button>
+    <button *ngIf="isLoggedIn" (click)="logout()" type="button" class="btn btn-primary">Logout</button>
 </mat-toolbar>
