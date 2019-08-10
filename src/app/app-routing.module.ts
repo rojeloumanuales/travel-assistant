@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AddformComponent } from './addform/addform.component';
+import { ListingComponent } from './listing/listing.component';
+
 
 const routes: Routes = [
-  { path: 'add-form', component: AddformComponent }
+    { path: 'park-list', component: ListingComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+}
