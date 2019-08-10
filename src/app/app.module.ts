@@ -10,7 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashBoardComponent } from './dash-board/dash-board.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCheckboxModule, MatFormFieldModule, MatCardModule, MatButtonModule, MatOptionModule, MatSelectModule, MatInputModule } from '@angular/material';
+import { MatRadioModule, MatFormFieldModule, MatCardModule, MatButtonModule, MatOptionModule, MatSelectModule, MatInputModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './login/login.component';
@@ -37,7 +37,7 @@ import { LoginComponent } from './login/login.component';
     MatOptionModule,
     MatSelectModule,
     MatInputModule,
-    MatCheckboxModule,
+    MatRadioModule,
     ReactiveFormsModule,
     FormsModule
   ],
