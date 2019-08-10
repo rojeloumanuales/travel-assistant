@@ -12,13 +12,19 @@ export class UserssService {
   constructor(private http: HttpClient) { }
 
 
-  getUser(email, password): Observable<any> {
+  login(email, password): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/users.json`)
       .pipe(map(users => {
         let index = _.findIndex(users, { 'email': email, 'password': password });
+        localStorage.setItem('user', JSON.stringify(users[index]));
         return users[index];
       })
       );
+  }
+
+  logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('myParkings');
   }
 
 
