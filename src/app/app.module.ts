@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatListModule, MatCardModule } from '@angular/material';
+import { MatListModule, MatCardModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { ListingComponent } from './listing/listing.component';
+import { ButtonsModule } from 'ngx-bootstrap';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,10 @@ import { ListingComponent } from './listing/listing.component';
         AppRoutingModule,
         BrowserAnimationsModule,
         MatListModule,
-        MatCardModule
+        MatCardModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        ButtonsModule.forRoot()
     ],
     providers: [],
     bootstrap: [AppComponent]
