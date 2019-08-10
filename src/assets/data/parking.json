@@ -1,50 +1,62 @@
 [
-  {
-    "id": 1,
-    "userId": 1,
-    "company": "sm",
-    "details": "",
-    "capacity": "300",
-    "occupied": "20",
-    "type": "4w",
-    "city": "Cebu",
-    "address": "Sm City",
-    "barangay": "Mabolo"
-  },
-  {
-    "id": 2,
-    "userId": 1,
-    "company": "sm",
-    "details": "",
-    "capacity": "300",
-    "occupied": "20",
-    "type": "4w",
-    "city": "Cebu",
-    "address": "SM Seaside",
-    "barangay": "Mambaling"
-  },
-  {
-    "id": 3,
-    "userId": 2,
-    "company": "Gaisano",
-    "details": "",
-    "capacity": "300",
-    "occupied": "20",
-    "type": "4w",
-    "city": "Cebu",
-    "address": "Gaisano Ayala",
-    "barangay": "Lahug"
-  },
-  {
-    "id": 4,
-    "userId": 2,
-    "company": "Gaisano",
-    "details": "",
-    "capacity": "300",
-    "occupied": "20",
-    "type": "4w",
-    "city": "Mandaue",
-    "address": "Pacific Mall",
-    "barangay": "Maguikay"
-  }
+    {
+        "id": 1,
+        "userId": 1,
+        "company": "sm",
+        "details": "30 for 3 hours, 10 pesos per hour succeding",
+        "capacity": "300",
+        "occupied": "20",
+        "type": "4w",
+        "city": "Cebu",
+        "address": "Sm City",
+        "barangay": "Mabolo"
+    },
+    {
+        "id": 2,
+        "userId": 1,
+        "company": "sm",
+        "details": "20 for 3 hours, 10 pesos per hour succeding",
+        "capacity": "300",
+        "occupied": "20",
+        "type": "4w",
+        "city": "Cebu",
+        "address": "SM Seaside",
+        "barangay": "Mambaling"
+    },
+    {
+        "id": 3,
+        "userId": 2,
+        "company": "Gaisano",
+        "details": "50 for 3 hours, 10 pesos per hour succeding",
+        "capacity": "300",
+        "occupied": "20",
+        "type": "4w",
+        "city": "Cebu",
+        "address": "Gaisano Ayala",
+        "barangay": "Lahug"
+    },
+    {
+        "id": 4,
+        "userId": 2,
+        "company": "Gaisano",
+        "details": "30 for 3 hours, 10 pesos per hour succeding",
+        "capacity": "300",
+        "occupied": "20",
+        "type": "4w",
+        "city": "Mandaue",
+        "address": "Pacific Mall",
+        "barangay": "Maguikay"
+    },
+    {
+        "id": 5,
+        "userId": 1,
+        "company": "Global Gaisano",
+        "details": "40 for 3 hours, 10 pesos per hour succeding",
+        "capacity": "400",
+        "occupied": "20",
+        "type": "4w",
+        "city": "Talisay",
+        "address": "Star Mall",
+        "barangay": "Maguikay"
+    }
 ]

@@ -6,20 +6,31 @@ import { map } from 'rxjs/operators';
 import _ from 'lodash';
 
 @Injectable({ providedIn: 'root' })
-export class UserssService {
+export class UsersService {
 
   apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
 
-  getUser(email, password): Observable<any> {
+  login(email, password): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/users.json`)
       .pipe(map(users => {
-        let index = _.findIndex(users, { 'email': email, 'password': password });
+        const index = _.findIndex(users, { email, password });
+        localStorage.setItem('user', JSON.stringify(users[index]));
         return users[index];
       })
       );
   }
 
+  logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('myParkings');
+  }
 
+  isLoggedIn() {
+    if (localStorage.getItem('user')) {
+      return true;
+    }
+    return false;
+  }
 }

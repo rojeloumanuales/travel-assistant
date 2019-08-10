@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ParkingService } from '../services/parking.service';
+import _ from 'lodash';
 
 @Component({
     selector: 'app-listing',
@@ -8,10 +10,71 @@ import { Component, OnInit } from '@angular/core';
 export class ListingComponent implements OnInit {
 
     isAdmin: boolean;
+    parkData: any;
+    uniqueCity: any;
+    uniqueBrgy: any;
+    citySelected: string;
+    brgySelected: string;
+    parkingAll: any;
 
-    constructor() { }
+    constructor(private pService: ParkingService) { }
 
     ngOnInit() {
+        this.getParkings();
     }
 
+    getParkings() {
+        this.pService.getParkings().subscribe(data => {
+            this.parkData = data;
+            this.parkingAll = data;
+            this.filterCity();
+            this.filterBrgy();
+        });
+    }
+
+    filterCity() {
+        this.uniqueCity = this.parkData.reduce((acc, current) => {
+            const x = acc.find(item => item.city === current.city);
+            if (!x) {
+                return acc.concat([current]);
+            } else {
+                return acc;
+            }
+        }, []);
+    }
+
+    filterBrgy() {
+        this.uniqueBrgy = this.parkData.reduce((acc, current) => {
+            const x = acc.find(item => item.barangay === current.barangay);
+            if (!x) {
+                return acc.concat([current]);
+            } else {
+                return acc;
+            }
+        }, []);
+    }
+
+    filterCityList(value) {
+        if (value) {
+            if (this.brgySelected) {
+                this.parkData = this.parkingAll.filter(p => { return (p.city === value && p.barangay === this.brgySelected) });
+            } else {
+                this.parkData = this.parkingAll.filter(p => { return p.city === value });
+            }
+        } else {
+            this.parkData = this.parkingAll;
+        }
+    }
+
+    filterBrgyList(value) {
+        if (value) {
+            if (this.citySelected) {
+                this.parkData = this.parkingAll.filter(p => { return (p.barangay === value && p.city === this.citySelected) });
+            } else {
+                this.parkData = this.parkingAll.filter(p => { return p.barangay === value });
+            }
+        } else {
+            this.parkData = this.parkingAll;
+        }
+    }
 }
