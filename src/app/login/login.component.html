@@ -6,7 +6,7 @@
                     Welcome to Park2Go
                 </mat-card-header>
                 <mat-card-content>
-                    <div class="container">
+                    <div class="container mt-5">
                         <div class="row">
                             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                                 <div class="col-12">
@@ -16,10 +16,16 @@
                                 </div>
                                 <div class="col-12">
                                     <mat-form-field>
-                                        <input matInput type="password" placeholder="password" formControlName="password">
+                                        <input matInput type="password" placeholder="password"
+                                            formControlName="password">
                                     </mat-form-field>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mt-2">
+                                    <alert type="danger" *ngIf="invalidCreds">
+                                        Invalid credentials
+                                    </alert>
+                                </div>
+                                <div class="col-12 mt-2">
                                     <button mat-raised-button color="primary" class="pull-right">Login</button>
                                 </div>
                             </form>

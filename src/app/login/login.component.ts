@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { Router } from "@angular/router"
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { AlertModule } from 'ngx-bootstrap/alert';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   password: string = '';
   loginForm: FormGroup;
 
+  invalidCreds = false;
 
   constructor(private usersService: UsersService, private router: Router) {
     // if(this.usersService.isLoggedIn()) {
@@ -41,7 +42,7 @@ export class LoginComponent implements OnInit {
       if (user) {
         this.router.navigate(['/']);
       } else {
-        console.log('invalid user');
+        this.invalidCreds = true;
       }
     })
 
