@@ -1,5 +1,15 @@
 .login-cont {
-    form,.mat-form-field {
-        width: 100%;
-    }
-} 
+  form,
+  .mat-form-field {
+    width: 100%;
+  }
+
+  .loginbutton {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .mat-card-header {
+    font-size: 30px;
+  }
+}
