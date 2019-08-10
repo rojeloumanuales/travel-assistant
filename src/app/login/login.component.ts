@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   invalidCreds = false;
 
-  constructor(private usersService: UsersService, private router: Router) {
+  constructor(private usersService: UsersService, private router: Router, private parkService: ParkingService) {
     if (this.usersService.isLoggedIn()) {
       this.router.navigate(['/']);
     }
@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
 
     this.usersService.login(email, password).subscribe((user) => {
       if (user) {
+        this.parkService.getParkings().subscribe();
         this.router.navigate(['/']);
       } else {
         this.invalidCreds = true;
