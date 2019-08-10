@@ -68,6 +68,7 @@ export class AddformComponent implements OnInit {
     };
 
     this.parkingService.addParking(post_val);
+    window.location.href = '/add-form';
   }
 
 }
