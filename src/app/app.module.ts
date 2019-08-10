@@ -38,7 +38,8 @@ import { LoginComponent } from './login/login.component';
     MatSelectModule,
     MatInputModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     MatButtonModule,
