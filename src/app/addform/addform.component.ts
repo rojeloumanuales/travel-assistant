@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { Router } from "@angular/router"
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ParkingService } from '../services/parking.service';
 
 @Component({
   selector: 'app-addform',
@@ -10,21 +11,23 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AddformComponent implements OnInit {
 
-  company: string ='';
+  company: string = '';
   details: string = '';
   capacity: string = '';
   location: string = '';
   typewheel: string = '';
-  addForm: FormGroup; 
+  city: string = '';
+  barangay: string = '';
+  addForm: FormGroup;
 
-  constructor() { 
+  constructor(private parkingService: ParkingService) {
 
   }
 
   ngOnInit() {
     this.addForm = new FormGroup({
       company: new FormControl(this.company, [
-          Validators.required
+        Validators.required
       ]),
       details: new FormControl(this.details, [
         Validators.required
@@ -33,22 +36,38 @@ export class AddformComponent implements OnInit {
         Validators.required
       ]),
       location: new FormControl(this.location, [
-      Validators.required
-      ]), 
+        Validators.required
+      ]),
       typewheel: new FormControl(this.typewheel, [
-      Validators.required
-      ]), 
+        Validators.required
+      ]),
+      city: new FormControl(this.city, [
+        Validators.required
+      ]),
+      barangay: new FormControl(this.barangay, [
+        Validators.required
+      ]),
     });
   }
   onSubmit() {
-    let company = this.addForm.get('company').value;
-    let details = this.addForm.get('details').value;
-    let capacity = this.addForm.get('capacity').value;
-    let location = this.addForm.get('location').value;
-    let vehicle_type = this.addForm.get('typewheel').value;
-    
-    let post_val = {'company': company,'details': details, 'capacity': capacity, 'location': location, 'vehicle_type': vehicle_type}
-    console.log('post val', post_val);
+    const company = this.addForm.get('company').value;
+    const details = this.addForm.get('details').value;
+    const capacity = this.addForm.get('capacity').value;
+    const location = this.addForm.get('location').value;
+    const type = this.addForm.get('typewheel').value;
+    const city = this.addForm.get('city').value;
+    const barangay = this.addForm.get('barangay').value;
+    const post_val = {
+      company,
+      details,
+      capacity,
+      location,
+      type,
+      city,
+      barangay
+    };
+
+    this.parkingService.addParking(post_val);
   }
 
 }

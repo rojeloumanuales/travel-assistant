@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ParkingService } from '../services/parking.service';
 
 @Component({
   selector: 'app-dash-board',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashBoardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private parkService: ParkingService) {
+  }
 
   ngOnInit() {
   }
