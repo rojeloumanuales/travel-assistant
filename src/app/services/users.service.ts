@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import _ from 'lodash';
 
 @Injectable({ providedIn: 'root' })
 export class UserssService {
@@ -13,14 +14,11 @@ export class UserssService {
 
   getUser(email, password): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/users.json`)
-      .pipe(map(user => {
-        console.log(user);
-        // if (user.id === userId) {
-        //   return user;
-        // }
-
-        // return;
-      }));
+      .pipe(map(users => {
+        let index = _.findIndex(users, { 'email': email, 'password': password });
+        return users[index];
+      })
+      );
   }
 
 
