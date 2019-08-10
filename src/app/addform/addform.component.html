@@ -1,29 +1,37 @@
-<div class="example-container">
-   
-    <mat-form-field>
-    <input matInput placeholder="Company">
-    </mat-form-field>
-    <mat-form-field>
-        <textarea matInput placeholder="Details"></textarea>
-    </mat-form-field>
-    <mat-form-field>
-    <input matInput placeholder="Capacity">
-    </mat-form-field>
-    <mat-form-field>
-    <input matInput placeholder="Location">
-    </mat-form-field>
-    <mat-form-field>
-    <input matInput placeholder="Address">
-    </mat-form-field>
-
-
-    <section class="example-section">
-            <h2 class="example-h2">Type</h2>
-        <mat-checkbox class="example-margin" [(ngModel)]="wheel2">2 wheel</mat-checkbox>
-        <mat-checkbox class="example-margin" [(ngModel)]="wheel4">4 wheel</mat-checkbox>
-    </section>
-    <section class="example-section">
-            <button mat-flat-button color="primary">Save</button>
-    </section>
-
+<div class="container mt-5 form-cont">
+  <div class="row">
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <h2 class="example-h2">Company Details</h2>
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Company" formControlName="company">
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput placeholder="Details" formControlName="details"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Capacity" formControlName="capacity">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Location" formControlName="location">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="City" formControlName="city">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Barangay" formControlName="barangay">
+        </mat-form-field>
+      </div>
+      <h2 class="example-h2">Type</h2>
+      <section class="example-section">
+        <mat-radio-group aria-label="Select an option" formControlName="typewheel">
+          <mat-radio-button value="2w">2 Wheel</mat-radio-button>
+          <mat-radio-button value="4w">4 Wheel</mat-radio-button>
+        </mat-radio-group>
+      </section>
+      <section class="example-section">
+        <button mat-flat-button color="primary">Save</button>
+      </section>
+    </form>
+  </div>
 </div>
