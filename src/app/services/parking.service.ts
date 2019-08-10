@@ -16,18 +16,38 @@ export class ParkingService {
       .pipe(map(parkings => {
         localStorage.setItem('parkings', JSON.stringify(parkings));
         return parkings;
-        })
+      })
       );
   }
 
-  getParkingsByUser(userId): Observable<any>{
-    return this.http.get<any>(`${this.apiUrl}/users.json`)
-      .pipe(map(parkings => {
-        let index = _.findIndex(parkings, { 'userId': userId});
-        localStorage.setItem('myParkings', JSON.stringify(parkings[index]));
-        return parkings[index];
-      })
-      );
+  getParkingsByUser(userId) {
+    const parkings = JSON.parse(localStorage.getItem('parkings'));
+    const myParkings = parkings.filter(p => p.userId === userId);
+
+    return myParkings;
+  }
+
+  addParking(data) {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const parkings = JSON.parse(localStorage.getItem('parkings'));
+    data.userId = user.id;
+    data.id = parkings.length + 1;
+    data.company = user.company;
+
+    parkings.push(data);
+    localStorage.removeItem('parkings');
+    localStorage.setItem('parkings', JSON.stringify(parkings));
+  }
+
+  updateParking(parkingId, occupiedValue) {
+    const parkings = JSON.parse(localStorage.getItem('parkings'));
+    const index = _.findIndex(parkings, { 'id': parkingId });
+    const parking = parkings[index];
+    parking.occupied = occupiedValue;
+    parkings[index] = parking;
+    localStorage.removeItem('parkings');
+    localStorage.setItem('parkings', JSON.stringify(parkings));
+
   }
 
 
