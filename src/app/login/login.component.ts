@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
-import { Router } from "@angular/router"
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { ParkingService } from '../services/parking.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,9 +18,9 @@ export class LoginComponent implements OnInit {
   invalidCreds = false;
 
   constructor(private usersService: UsersService, private router: Router) {
-    // if(this.usersService.isLoggedIn()) {
-    //   this.router.navigate(['/']);
-    // }
+    if (this.usersService.isLoggedIn()) {
+      this.router.navigate(['/']);
+    }
   }
 
   ngOnInit() {
