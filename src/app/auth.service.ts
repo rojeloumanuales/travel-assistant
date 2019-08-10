@@ -1,35 +1,10 @@
 import { Injectable } from '@angular/core';
+import { UsersService } from './services/users.service';
+import { Users } from './models/users';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  isLoggedin = false;
-  user = {};
-  tempUser = {
-    email: 'email@email.com',
-    name: 'namenamename'
-  }
-
-  constructor() { }
-
-  login(email, password) {
-    //
-    this.isLoggedin = true;
-    this.user = this.tempUser;
-  }
-
-  logout() {
-    this.isLoggedin = false;
-    this.user = {};
-  }
-
-  isLoggedIn() {
-    return this.isLoggedIn;
-  }
-
-  getLoggedUser() {
-    return this.user;
-  }
 }

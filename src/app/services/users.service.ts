@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import _ from 'lodash';
 
 @Injectable({ providedIn: 'root' })
-export class UserssService {
+export class UsersService {
 
   apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
@@ -27,5 +27,10 @@ export class UserssService {
     localStorage.removeItem('myParkings');
   }
 
-
+  isLoggedIn() {
+    if (localStorage.getItem('user')) {
+      return true;
+    }
+    return false;
+  }
 }
