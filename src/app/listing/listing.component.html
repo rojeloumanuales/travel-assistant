@@ -22,7 +22,7 @@
                 </mat-form-field>
             </div>
             <div class="col-6">
-                <button type="button" class="float-right btn btn-primary">
+                <button type="button" *ngIf="isAdmin" class="float-right btn btn-primary">
                     Add
                 </button>
                 <div class="clearfix"></div>
@@ -61,7 +61,7 @@
                                 </div>
                             </mat-card-content>
                             <mat-card-actions>
-                                <button type="button" class="float-right btn btn-primary">
+                                <button *ngIf="isAdmin" type="button" class="float-right btn btn-primary">
                                     Update
                                 </button>
                                 <div class="clearfix"></div>

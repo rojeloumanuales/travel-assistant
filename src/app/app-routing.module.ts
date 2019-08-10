@@ -9,7 +9,6 @@ const routes: Routes = [
     {
         path: '',
         component: DashBoardComponent,
-        canActivate: [AuthGuard]
     },
     { path: 'login', component: LoginComponent, },
     { path: 'park-list', component: ListingComponent }

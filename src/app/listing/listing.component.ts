@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ParkingService } from '../services/parking.service';
-import _ from 'lodash';
+import { UsersService } from '../services/users.service';
 
 @Component({
     selector: 'app-listing',
@@ -17,9 +17,15 @@ export class ListingComponent implements OnInit {
     brgySelected: string;
     parkingAll: any;
 
-    constructor(private pService: ParkingService) { }
+    constructor(private pService: ParkingService, private uService: UsersService) { }
 
     ngOnInit() {
+        if (this.uService.isLoggedIn()) {
+            this.isAdmin = true;
+        } else {
+            this.isAdmin = false;
+        }
+
         this.getParkings();
     }
 
