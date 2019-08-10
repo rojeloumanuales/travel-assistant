@@ -5,24 +5,22 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms'; 
 // Custom Import
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
 import { AddformComponent } from './addform/addform.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashBoardComponent } from './dash-board/dash-board.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCheckboxModule, MatFormFieldModule, MatCardModule, MatButtonModule, MatOptionModule, MatSelectModule, MatInputModule } from '@angular/material';
+
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddformComponent,
     NavbarComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -30,14 +28,23 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule, 
-    MatSelectModule,
-    MatCheckboxModule,
+    MatButtonModule,
     MatCardModule,
-    FormsModule,
-    HttpClientModule
+    MatFormFieldModule,
+    MatOptionModule, 
+    MatSelectModule,
+    MatInputModule,
+    MatCheckboxModule
+  ],
+  exports: [
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatOptionModule, 
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
