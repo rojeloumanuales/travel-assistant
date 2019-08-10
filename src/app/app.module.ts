@@ -10,6 +10,8 @@ import { DashBoardComponent } from './dash-board/dash-board.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule, MatCardModule, MatButtonModule, MatOptionModule, MatSelectModule, MatInputModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AlertModule } from 'ngx-bootstrap/alert';
+
 
 import { LoginComponent } from './login/login.component';
 
@@ -34,7 +36,8 @@ import { LoginComponent } from './login/login.component';
     MatOptionModule,
     MatSelectModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AlertModule.forRoot()
   ],
   exports: [
     MatButtonModule,
@@ -43,7 +46,8 @@ import { LoginComponent } from './login/login.component';
     MatOptionModule,
     MatSelectModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AlertModule
   ],
   providers: [],
   bootstrap: [AppComponent]
