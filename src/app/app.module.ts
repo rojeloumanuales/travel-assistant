@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashBoardComponent } from './dash-board/dash-board.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCheckboxModule, MatFormFieldModule, MatCardModule, MatButtonModule, MatOptionModule, MatSelectModule, MatInputModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './login/login.component';
 
@@ -33,18 +34,20 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatOptionModule, 
+    MatOptionModule,
     MatSelectModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ReactiveFormsModule
   ],
   exports: [
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatOptionModule, 
+    MatOptionModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
