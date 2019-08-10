@@ -16,13 +16,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashBoardComponent } from './dash-board/dash-board.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatFormFieldModule, MatCardModule, MatButtonModule, MatOptionModule, MatSelectModule, MatInputModule } from '@angular/material';
+
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddformComponent,
     NavbarComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
